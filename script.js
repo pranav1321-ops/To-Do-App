@@ -9,31 +9,35 @@ function addTask(){
     else{
         const li = document.createElement("li");
         li.textContent = inputBox.value;
-        listContainer.appendChild(li); 
+        listContainer.appendChild(li);
+        let icon = document.createElement('i');
+        icon.className = "fa-solid fa-trash";
+        // icon.style.zIndex = 100;
+        li.appendChild(icon); 
     }
     inputBox.value = '';
-    // saveData();
+    saveData();
 } 
 
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
         e.target.classList.toggle("tasks");
-        // saveData();
+        saveData();
     }else if(e.target.tagName === "I"){
         e.target.parentElement.remove();
-        // saveData();
+        saveData();
     }
 }, false)
 
-// function saveData(){
-//     localStorage.setItem("data", listContainer.innerHTML);
-// }
+function saveData(){
+    localStorage.setItem("data", listContainer.innerHTML);
+}
 
-// function showData(){
-//     listContainer.innerHTML = localStorage.getItem("data");
-// }
+function showData(){
+    listContainer.innerHTML = localStorage.getItem("data");
+}
 
-// showData();
+showData();
 
 
-// button.addEventListener("click", addTask);
+button.addEventListener("click", addTask);

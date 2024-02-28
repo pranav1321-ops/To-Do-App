@@ -9,13 +9,16 @@
 }
 
 body{
+    height: 100vh;
     margin: 10px;
+    margin-bottom: 0px;
     padding: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(45deg, #a83f79c8, #2e7e99dd);
+    background-image: linear-gradient(to top, #3f51b1 0%, #5a55ae 13%, #7b5fac 25%, #8f6aae 38%, #a86aa4 50%, #cc6b8e 62%, #f18271 75%, #f3a469 87%, #f7c978 100%);
 }
+
 
 /* height and width property is applied to container */
 
@@ -31,9 +34,11 @@ body .container{
     border: none;
     border-top-left-radius: 26px;
     border-bottom-right-radius: 26px;
-    color: white;
-    background-color: rgba(22, 100, 108, 0.909);
-    box-shadow: 20px 15px 45px rgba(160, 132, 190, 0.991);
+    color: #ffffff;
+     background-color: rgba(22, 100, 108, 0.35); 
+     backdrop-filter: blur(60px);
+    box-shadow: 0px 0px 45px rgba(160, 132, 190, 0.991); 
+
 }
 
 
@@ -48,6 +53,7 @@ header .logoContainer {
 header .tagline{
     font-weight: 500;
     transition:  all 0.3s ease-in;
+    color: #adb6de;
 }
 
 
@@ -80,8 +86,11 @@ header p{
 }
 
 
-.input #addTask{
+.input #taskInput{
     text-align: center;
+    outline: none;
+    border-radius: 4px;
+    border: none;
 
 }
 
@@ -102,33 +111,43 @@ ul{
     padding: 25px;
     text-align: center;
     width: 75%;
-    /* border: 2px solid black; */
 }
 
 li{
-    padding: 5px;
+    padding: 0px 5px 0px 10px;
     margin: 10px;
     background-color: white;
-    color: black;
+    color: white;
     border-radius: 20px;
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
-    /* cursor: text; */
+    background-color: rgb(100, 121, 117); 
+     backdrop-filter: blur(60px);
+     overflow: hidden;
 }
 
 li.tasks{
     text-decoration: line-through;
-}
-
+    text-decoration-color: black;
+    text-decoration-thickness: 2px ;
+}  
 li:hover{
+    cursor: default;
     border: 1px solid black;
 }
 
+
+li i{
+    padding: 5px;
+    text-decoration: none;
+    z-index: 100;
+    color: black;
+}
 li i:hover{
     cursor: pointer;
-    background-color: rgba(78, 161, 174, 0.674);
-    padding: 5px;
+    background-color: rgba(239, 244, 244, 0.674);
     border-radius: 50%;
 }
 
