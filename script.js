@@ -39,5 +39,4 @@ function showData(){
 
 showData();
 
-
 button.addEventListener("click", addTask);
