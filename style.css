@@ -20,8 +20,6 @@ body{
 }
 
 
-/* height and width property is applied to container */
-
 body .container{
     margin-top: 20px;
     margin-bottom: 20px;
@@ -57,14 +55,11 @@ header .tagline{
 }
 
 
- /* can replace the image with icon */
 header .headerImage{
     height: 50px;
     width: 50px;
     border-radius: 50%;
-    /* mix-blend-mode: multiply; */
     font-size: 2rem;
-    /* border: 2px solid black; */
     
 }
 
@@ -132,12 +127,12 @@ li.tasks{
     text-decoration: line-through;
     text-decoration-color: black;
     text-decoration-thickness: 2px ;
-}  
+}
+
 li:hover{
     cursor: default;
     border: 1px solid black;
 }
-
 
 li i{
     padding: 5px;
@@ -145,6 +140,7 @@ li i{
     z-index: 100;
     color: black;
 }
+
 li i:hover{
     cursor: pointer;
     background-color: rgba(239, 244, 244, 0.674);
