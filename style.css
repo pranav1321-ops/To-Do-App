@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: "Anta", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    box-sizing: border-box;
+}
+
+body{
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, #a83f79c8, #2e7e99dd);
+}
+
+/* height and width property is applied to container */
+
+body .container{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 400px;
+    border: none;
+    border-top-left-radius: 26px;
+    border-bottom-right-radius: 26px;
+    color: white;
+    background-color: rgba(22, 100, 108, 0.909);
+    box-shadow: 20px 15px 45px rgba(160, 132, 190, 0.991);
+}
+
+
+header .logoContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+}
+
+header .tagline{
+    font-weight: 500;
+    transition:  all 0.3s ease-in;
+}
+
+
+ /* can replace the image with icon */
+header .headerImage{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    /* mix-blend-mode: multiply; */
+    font-size: 2rem;
+    /* border: 2px solid black; */
+    
+}
+
+ header h1{
+    padding: 20px;
+    font-weight: 600;
+    
+}
+
+header p{
+    text-align: center;
+}
+
+.container .input{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.input #addTask{
+    text-align: center;
+
+}
+
+.input i{
+    margin-left: 12px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+
+.input i:hover{
+    background-color: rgba(78, 161, 174, 0.674);
+}
+
+ul{
+    margin: 10px;
+    padding: 25px;
+    text-align: center;
+    width: 75%;
+    /* border: 2px solid black; */
+}
+
+li{
+    padding: 5px;
+    margin: 10px;
+    background-color: white;
+    color: black;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* cursor: text; */
+}
+
+li.tasks{
+    text-decoration: line-through;
+}
+
+li:hover{
+    border: 1px solid black;
+}
+
+li i:hover{
+    cursor: pointer;
+    background-color: rgba(78, 161, 174, 0.674);
+    padding: 5px;
+    border-radius: 50%;
+}
+
