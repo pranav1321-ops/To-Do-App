@@ -1,6 +1,9 @@
 const inputBox = document.getElementById('taskInput');
 const listContainer = document.getElementById('list-container');
 const button = document.getElementById("addIcon");
+const completedButton = document.getElementById("showCompleted");
+const incompleteButton = document.getElementById("showIncomplete");
+const clearAllButton = document.getElementById('clearAll');
 
 function addTask(){
     if(inputBox.value === ""){
@@ -8,11 +11,14 @@ function addTask(){
     }
     else{
         const li = document.createElement("li");
-        li.textContent = inputBox.value;
+        const taskText = document.createElement("span");
+        taskText.textContent = inputBox.value;
+        taskText.classList.add("task");
         listContainer.appendChild(li);
+        li.appendChild(taskText);
+
         let icon = document.createElement('i');
         icon.className = "fa-solid fa-trash";
-        // icon.style.zIndex = 100;
         li.appendChild(icon); 
     }
     inputBox.value = '';
@@ -21,13 +27,33 @@ function addTask(){
 
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
-        e.target.classList.toggle("tasks");
+         e.target.querySelector('.task').classList.toggle("completed");
         saveData();
     }else if(e.target.tagName === "I"){
         e.target.parentElement.remove();
         saveData();
     }
 }, false)
+
+function showTasks(completed) {
+    const tasks = listContainer.querySelectorAll("li");
+
+    tasks.forEach(function(task) {
+        const taskText = task.querySelector('.task');
+        if (!taskText) {
+            console.error("Task text element not found in:", task);
+            return;
+        }
+        const isCompleted = taskText.classList.contains("completed");
+        if (completed && isCompleted) {
+            task.style.display = "flex"; // Show completed tasks
+        } else if (!completed && !isCompleted) {
+            task.style.display = "flex"; // Show incomplete tasks
+        } else {
+            task.style.display = "none"; // Hide other tasks
+        }
+    });
+}
 
 function saveData(){
     localStorage.setItem("data", listContainer.innerHTML);
@@ -40,3 +66,10 @@ function showData(){
 showData();
 
 button.addEventListener("click", addTask);
+completedButton.addEventListener("click", () => showTasks(true)); 
+incompleteButton.addEventListener("click", () => showTasks(false)); 
+
+clearAllButton.addEventListener("click", () => {
+    listContainer.innerHTML = '';
+    localStorage.removeItem("data");
+});
