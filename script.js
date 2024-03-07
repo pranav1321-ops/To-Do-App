@@ -4,7 +4,7 @@ const button = document.getElementById("addIcon");
 const completedButton = document.getElementById("showCompleted");
 const incompleteButton = document.getElementById("showIncomplete");
 const clearAllButton = document.getElementById('clearAll');
-
+const tagLine =document.querySelector(".tagline");
 function addTask(){
     if(inputBox.value === ""){
         alert("Let's start by adding your task.")
@@ -24,6 +24,35 @@ function addTask(){
     inputBox.value = '';
     saveData();
 } 
+
+// fuctnion to show simulate typing effect
+
+function typeEffect(element, text, speed){
+    let i = 0;
+    const typeWriter = setInterval( () => {
+        if (i < text.length){
+            element.textContent += text.charAt(i);
+            i++;
+        } else{
+            clearInterval(typeWriter)
+        }
+    },speed);
+}
+
+//Running the typing effect to run once the page reloads
+window.onload = function(){
+    const originalText = tagLine.textContent;
+    tagLine.textContent = '';
+    typeEffect(tagLine, originalText, 100);
+}
+
+//Adding feature so that user just needs to press enter upon post entering the task.
+
+inputBox.addEventListener("keydown", function(event){
+    if(event.key === "Enter"){
+        addTask();
+    }
+})
 
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName === "LI"){
@@ -47,7 +76,7 @@ function showTasks(completed) {
         const isCompleted = taskText.classList.contains("completed");
         if (completed && isCompleted) {
             task.style.display = "flex"; // Show completed tasks
-        } else if (!completed && !isCompleted) {
+        } else if (!completed && !isCompleted)  {
             task.style.display = "flex"; // Show incomplete tasks
         } else {
             task.style.display = "none"; // Hide other tasks

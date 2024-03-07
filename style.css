@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Madimi+One&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playpen+Sans:wght@100..800&display=swap');
+
+
 *{
     margin: 0px;
     padding: 0px;
@@ -22,6 +25,7 @@ body{
 
 body .container{
     margin-top: 20px;
+    position: relative;
     margin-bottom: 20px;
     display: flex;
     flex-direction: column;
@@ -39,6 +43,10 @@ body .container{
 
 }
 
+.top{
+    position: absolute;
+    top: 0px;
+}
 
 header .logoContainer {
     display: flex;
@@ -49,9 +57,10 @@ header .logoContainer {
 }
 
 header .tagline{
-    font-weight: 500;
-    transition:  all 0.3s ease-in;
+    font-family: "Playpen Sans", cursive;
+    font-weight: 600;
     color: #adb6de;
+    letter-spacing: 1px;
 }
 
 
